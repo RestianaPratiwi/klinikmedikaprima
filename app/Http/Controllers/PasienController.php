@@ -20,7 +20,7 @@ class PasienController extends Controller
      */
     public function create()
     {
-        //
+        return view('pasien_create');
     }
 
     /**
@@ -28,7 +28,18 @@ class PasienController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $requestData = $request->validate([
+            'nama' => 'required|min:3',
+            'no_pasien' => 'required',
+            'umur' => 'required',
+            'alamat' => 'nullable',
+            'jenis_kelamin' => 'required',
+        ]);
+        $pasien = new \App\Models\Pasien;
+        $pasien->fill($requestData);
+        $pasien->save();
+        flash('Data anda berhasil disimpan')->success();
+        return back();
     }
 
     /**

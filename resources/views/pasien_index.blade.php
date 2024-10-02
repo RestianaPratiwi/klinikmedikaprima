@@ -3,6 +3,7 @@
    <div class="card">
         <div class="card-body">
             <h3>Data Pasien</h3>
+            <a href ="/pasien/create" class="btn btn-primary">Tambah Data</a>
             <table class="table table-striped">
                 <thead>
                     <tr>
