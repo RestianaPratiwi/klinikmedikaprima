@@ -1,4 +1,4 @@
-@extends('mylayout', ['tittle' => 'Data Pasien'])
+@extends('layouts.app', ['tittle' => 'Data Pasien'])
 @section('content')
    <div class="card">
         <div class="card-body">
