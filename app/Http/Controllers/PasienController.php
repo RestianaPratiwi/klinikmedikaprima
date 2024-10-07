@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PasienController extends Controller
 {
@@ -34,9 +35,11 @@ class PasienController extends Controller
             'umur' => 'required',
             'alamat' => 'nullable',
             'jenis_kelamin' => 'required',
+            'foto' => 'required|image|mimes:jpeg,png,jpg|max:10000'
         ]);
         $pasien = new \App\Models\Pasien;
-        $pasien->fill($requestData);
+        $pasien->fill($requestData); //mengisi objek dengan data yang sudah divalidasi requestData
+        $pasien->foto = $request->file('foto')->store('public'); //mengisi objek dengan path foto
         $pasien->save();
         flash('Data anda berhasil disimpan')->success();
         return back();
@@ -55,7 +58,8 @@ class PasienController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $data['pasien'] = \App\Models\Pasien::findOrFail($id);
+        return view('pasien_edit',$data);
     }
 
     /**
@@ -63,7 +67,23 @@ class PasienController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $requestData = $request->validate([
+            'nama' => 'required|min:3',
+            'no_pasien' => 'required|unique:pasiens,no_pasien,'.$id,
+            'umur' => 'required',
+            'alamat' => 'nullable',
+            'jenis_kelamin' => 'required',
+            'foto' => 'nullable|image|mimes:jpeg,png,jpg|max:10000'
+        ]);
+        $pasien = \App\Models\Pasien::findOrfail($id);
+        $pasien->fill($requestData); //mengisi objek dengan data yang sudah divalidasi requestData
+        if ($request->hasFile('foto')) {
+            Storage::delete($pasien->foto);
+            $pasien->foto = $request->file('foto')->store('public');
+        }
+        $pasien->save();
+        flash('Data anda berhasil diubah')->success();
+        return redirect('/pasien');
     }
 
     /**
@@ -71,6 +91,12 @@ class PasienController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $pasien = \App\Models\Pasien::findOrfail($id);
+        if ($pasien->foto !=null && Storage::exists($pasien->foto)) {
+            Storage::delete($pasien->foto);
+        }
+        $pasien->delete();
+        flash('Data berhasil dihapus');
+        return back();
     }
 }
