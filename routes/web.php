@@ -8,9 +8,7 @@ Route::middleware([Authenticate::class])->group(function () {
     Route::resource('pasien', PasienController::class);
 });
 
-Route::get('profile', function (){
-    return 'hello world';
-});
+
 
 Route::get('/', function () {
     return view('welcome');
