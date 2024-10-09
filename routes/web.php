@@ -4,16 +4,28 @@ use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\PasienController;
 use \Illuminate\Auth\Middleware\Authenticate;
 
-Route::middleware([Authenticate::class])->group(function () {
-    Route::resource('pasien', PasienController::class);
-});
-
-
-
 Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+
+Auth::routes([
+    'register' => false,
+    'reset' => false,
+    'verify' => false,
+]);
+
+
+Route::group([
+    'middleware'=> ['auth'],
+    'prefix' => 'admin', //admin/tamu
+    'as' => 'admin.'
+], function(){
+    Route::resource('pasien', App\Http\Controllers\PasienController::class);
+});
+
+
+
