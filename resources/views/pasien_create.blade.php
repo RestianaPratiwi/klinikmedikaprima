@@ -1,9 +1,9 @@
 @extends('layouts.app', ['tittle' => 'Tambah Data Pasien'])
 @section('content')
     <div class="card">
+        <h5 class="card-header">Tambah Data Pasien</h5>
         <div class="card-body">
-            <h5 class="card-tittle">Tambah Data Pasien</h5>
-            <form action="{{ route('/pasien/store') }}" method="POST" enctype="multipart/form-data">
+            <form action="/pasien/" method="POST" enctype="multipart/form-data">
                 @csrf
                  <div class="form-group mt-1 mb-3">
                     <label for="foto">Foto Pasien</label>
