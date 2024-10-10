@@ -15,16 +15,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Auth::routes([
     'register' => false,
     'reset' => false,
-    'verify' => false,
 ]);
 
 
-Route::group([
-    'middleware'=> ['auth'],
-    'prefix' => 'admin', //admin/tamu
-    'as' => 'admin.'
-], function(){
-    Route::resource('pasien', App\Http\Controllers\PasienController::class);
+Route::group(['middleware'=> 'auth'], function(){
+    Route::resource( 'pasien', PasienController::class );
 });
 
 

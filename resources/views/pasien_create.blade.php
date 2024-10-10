@@ -3,7 +3,7 @@
     <div class="card">
         <div class="card-body">
             <h5 class="card-tittle">Tambah Data Pasien</h5>
-            <form action="{{ route('admin.pasien.store') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('/pasien/store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                  <div class="form-group mt-1 mb-3">
                     <label for="foto">Foto Pasien</label>
