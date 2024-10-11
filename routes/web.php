@@ -1,4 +1,6 @@
 <?php
+
+use App\Http\Controllers\DaftarController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\PasienController;
@@ -19,8 +21,9 @@ Auth::routes([
 ]);
 
 
-Route::group(['middleware'=> 'auth'], function(){
+Route::middleware([Authenticate::class])->group(function () {
     Route::resource( 'pasien', PasienController::class );
+    Route::resource( 'daftar', DaftarController::class );
 });
 
 

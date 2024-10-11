@@ -71,6 +71,10 @@
                             </ul>
                         </li>
 
+                        <li class="nav-item">
+                            <a href="/daftar" class="nav-link">Pendaftaran Pasien</a>
+                        </li>
+
                         @endauth
 
                     </ul>
