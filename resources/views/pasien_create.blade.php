@@ -1,4 +1,4 @@
-@extends('layouts.app', ['tittle' => 'Tambah Data Pasien'])
+@extends('layouts.app_modern', ['tittle' => 'Tambah Data Pasien'])
 @section('content')
     <div class="card">
         <h5 class="card-header">Tambah Data Pasien</h5>

@@ -26,5 +26,10 @@ Route::middleware([Authenticate::class])->group(function () {
     Route::resource( 'daftar', DaftarController::class );
 });
 
+Route::get('logout', function () {
+    Auth::logout();
+    return redirect('login');
+});
+
 
 
