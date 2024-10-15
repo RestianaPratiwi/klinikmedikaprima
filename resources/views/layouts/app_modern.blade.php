@@ -136,6 +136,7 @@
   <script src="/modern/src/assets/js/app.min.js"></script>
   <script src="/modern/src/assets/libs/simplebar/dist/simplebar.js"></script>
 </body>
+      
   <script>
       $(document).ready(function () {
         $('.select2').select2();
