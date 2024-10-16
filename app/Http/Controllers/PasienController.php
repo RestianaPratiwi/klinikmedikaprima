@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pasien;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -30,19 +31,21 @@ class PasienController extends Controller
     public function store(Request $request)
     {
         $requestData = $request->validate([
-            'nama' => 'required|min:3',
             'no_pasien' => 'required',
+            'nama' => 'required|min:3',
             'umur' => 'required',
             'alamat' => 'nullable',
             'jenis_kelamin' => 'required',
             'foto' => 'required|image|mimes:jpeg,png,jpg|max:10000'
         ]);
+        
+
+        $pasien = Pasien::create($request->all());
         $pasien = new \App\Models\Pasien;
         $pasien->fill($requestData); //mengisi objek dengan data yang sudah divalidasi requestData
         $pasien->foto = $request->file('foto')->store('public'); //mengisi objek dengan path foto
         $pasien->save();
-        flash('Data anda berhasil disimpan')->success();
-        return back();
+        return back()->with('success', 'data berhasil disimpan');
     }
 
     /**

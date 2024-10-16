@@ -22,8 +22,10 @@ Auth::routes([
 
 
 Route::middleware([Authenticate::class])->group(function () {
+    Route::get( 'pasien/create', [App\Http\Controllers\PasienController::class, 'create'])->name('pasien.create');
     Route::resource( 'pasien', PasienController::class );
     Route::resource( 'daftar', DaftarController::class );
+
 });
 
 Route::get('logout', function () {

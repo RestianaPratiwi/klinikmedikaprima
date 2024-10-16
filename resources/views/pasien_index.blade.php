@@ -1,6 +1,9 @@
 @extends('layouts.app_modern', ['tittle' => 'Data Pasien'])
 @section('content')
    <div class="card">
+    @if(Session::get('success'))
+        {{Session::get('success')}}
+    @endif
         <h5 class="card-header">Tambah Data Pasien</h5>
         <div class="card-body">
             <h3>Data Pasien</h3>
