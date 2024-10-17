@@ -11,7 +11,7 @@
                     <input type="file" class="form-control @error('foto') is-invalid @enderror" id="foto"
                         name="foto">
                     <span class="text-danger">{{ $errors->first('foto') }}</span>
-                    <img src="{{ Storage::url($pasien->foto) }}" width="100">
+                    <img src="{{ asset('storage/private/public/'.$pasien->foto) }}"  width="100" alt="">
                 </div>
 
                <div class="form-group mt-1 mb-3">

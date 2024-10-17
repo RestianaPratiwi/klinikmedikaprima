@@ -24,7 +24,7 @@
                            <td>{{ $item->no_pasien }}</td>
                            <td>
                                 @if ($item->foto)
-                                    <img src="{{ Storage::url($item->foto) }}" width="50">
+                                    <img src="{{ asset('/storage/app/public/' . $item->foto) }}" alt="foto" width="50" />
                                 @endif
                                {{ $item->nama }}
                            </td>
@@ -37,7 +37,7 @@
                                 <form action="/pasien/{{ $item->id }}" method="POST" class="d-inline">
                                     @csrf
                                     @method('delete')
-                                    <button type="submit" class="btn btn-danger btn-sm"
+                                    <button type="submit" class="btn btn-danger btn=sm"
                                         onclick="return confirm('Anda yakin ingin menghapus data?')">
                                         Hapus
                                     </button>

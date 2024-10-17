@@ -4,6 +4,7 @@ use App\Http\Controllers\DaftarController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\PasienController;
+use App\Http\Controllers\PoliController;
 use \Illuminate\Auth\Middleware\Authenticate;
 
 Route::get('/', function () {
@@ -25,6 +26,7 @@ Route::middleware([Authenticate::class])->group(function () {
     Route::get( 'pasien/create', [App\Http\Controllers\PasienController::class, 'create'])->name('pasien.create');
     Route::resource( 'pasien', PasienController::class );
     Route::resource( 'daftar', DaftarController::class );
+    Route::resource( 'poli', PoliController::class );
 
 });
 

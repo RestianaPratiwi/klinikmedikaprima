@@ -41,6 +41,22 @@
                 <span class="hide-menu">Dashboard</span>
               </a>
             </li>
+              <li class="sidebar-item">
+                 <a class="sidebar-link" href="/poli" aria-expanded="false">
+                <span>
+                  <i class="ti ti-user"></i>
+                </span>
+                <span class="hide-menu">Data Poli</span>
+              </a>
+            </li>
+              <li class="sidebar-item">
+                 <a class="sidebar-link" href="/poli/create" aria-expanded="false">
+                <span>
+                  <i class="ti ti-user"></i>
+                </span>
+                <span class="hide-menu">Tambah Poli</span>
+              </a>
+            </li>
             <li class="sidebar-item">
                  <a class="sidebar-link" href="/pasien" aria-expanded="false">
                 <span>
