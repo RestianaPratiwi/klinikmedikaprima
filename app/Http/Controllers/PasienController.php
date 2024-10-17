@@ -38,14 +38,12 @@ class PasienController extends Controller
             'jenis_kelamin' => 'required',
             'foto' => 'required|image|mimes:jpeg,png,jpg|max:10000'
         ]);
-        
-
-        $pasien = Pasien::create($request->all());
         $pasien = new \App\Models\Pasien;
         $pasien->fill($requestData); //mengisi objek dengan data yang sudah divalidasi requestData
         $pasien->foto = $request->file('foto')->store('public'); //mengisi objek dengan path foto
         $pasien->save();
-        return back()->with('success', 'data berhasil disimpan');
+        flash('Data berhasil disimpan')->success();
+        return back();
     }
 
     /**

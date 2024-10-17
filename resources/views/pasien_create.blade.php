@@ -3,7 +3,7 @@
     <div class="card">
         <h5 class="card-header">Tambah Data Pasien</h5>
         <div class="card-body">
-            <form action="/pasien/" method="POST" enctype="multipart/form-data">
+            <form action="/pasien" method="POST" enctype="multipart/form-data">
                 @csrf
                  <div class="form-group mt-1 mb-3">
                     <label for="foto">Foto Pasien</label>
