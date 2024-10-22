@@ -44,17 +44,17 @@
         </div>
         <div class="form-group mt-3 mb-3">
             <label for="keluhan">Keluhan</label>
-            <textarea for="keluhan" rows="2" class="form-control">{{ old('keluhan') }}</textarea>
+            <textarea for="keluhan" name="keluhan" rows="2" class="form-control">{{ old('keluhan') }}</textarea>
             <span class="text-danger">{{ $errors->first('keluhan') }}</span>
         </div>
          <div class="form-group mt-3 mb-3">
             <label for="diagnosis">Diagnosis</label>
-            <textarea for="diagnosis" rows="2" class="form-control">{{ old('diagnosis') }}</textarea>
+            <textarea for="diagnosis" name="diagnosis" rows="2" class="form-control">{{ old('diagnosis') }}</textarea>
             <span class="text-danger">{{ $errors->first('diagnosis') }}</span>
         </div>
          <div class="form-group mt-3 mb-3">
             <label for="tindakan">Tindakan</label>
-            <textarea for="tindakan" rows="2" class="form-control">{{ old('tindakan') }}</textarea>
+            <textarea for="tindakan" name="tindakan" rows="2" class="form-control">{{ old('tindakan') }}</textarea>
             <span class="text-danger">{{ $errors->first('tindakan') }}</span>
         </div>
 
