@@ -14,7 +14,12 @@ class DaftarController extends Controller
      */
     public function index()
     {
-        $data['daftar'] = \App\Models\Daftar::latest()->paginate(10);
+        if (request()->filled('q')) {
+            $data['daftar'] = \App\Models\Daftar::search(request('q'))->paginate(10);
+        }else{
+            $data['daftar'] = \App\Models\Daftar::latest()->paginate(10);
+        }
+        
         return view('daftar_index', $data);
     }
 
@@ -51,32 +56,44 @@ class DaftarController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Daftar $daftar)
+    public function show($id)
     {
-        //
+        $data['daftar'] = Daftar::findOrFail($id);
+        return view('daftar_show', $data);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Daftar $daftar)
+    public function edit(string $id)
     {
-        //
+        
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateDaftarRequest $request, Daftar $daftar)
+    public function update(Request $request, $id)
     {
-        //
+        $requestData = $request->validate([
+           'diagnosis' => 'required',
+           'tindakan' => 'required'
+        ]);
+        $daftar = \App\Models\Daftar::findOrfail($id);
+        $daftar->fill($requestData); //mengisi objek dengan data yang sudah divalidasi requestData
+        $daftar->save();
+        flash('Data anda berhasil diupdate')->success();
+        return redirect('/daftar');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Daftar $daftar)
+    public function destroy($id)
     {
-        //
+        $daftar = daftar::findOrfail($id);
+        $daftar->delete();
+        flash('Data berhasil dihapus')->success();
+        return back();
     }
 }

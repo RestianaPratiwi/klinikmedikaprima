@@ -4,6 +4,15 @@
         <h5 class="card-header">Data Pendaftaran</h5>
         <div class="card-body">
             <h3>Data Pendaftaran</h3>
+            <form action="">
+            <div class="row g-3 ">
+                <div class="col">
+                    <input type="text" name="q" class="form-control" placeholder="Nama atau nomor pasien" value="{{ request('q') }}">
+                </div>
+                <div class="col">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </div>
+            </form>
             <a href ="/daftar/create" class="btn btn-primary">Tambah Data</a>
             <table class="table table-striped">
                 <thead>
@@ -24,12 +33,12 @@
                            <td>{{ $item->pasien->nama }}</td>
                            <td>{{ $item->pasien->jenis_kelamin }}</td>
                            <td>{{ $item->tanggal_daftar }}</td>
-                           <td>{{ $item->poli }}</td>
+                           <td>{{ $item->poli_id }}</td>
                            <td>{{ $item->keluhan }}</td>
                            <td>
-                                <a href="/pasien/{{ $item->id }}/edit" class="btn btn-warning btn=sm">Edit</a>
-
-                                <form action="/pasien/{{ $item->id }}" method="POST" class="d-inline">
+                               
+                                <a href="/daftar/{{ $item->id }}" class="btn btn-info btn=sm">Detail</a>
+                                <form action="/daftar/{{ $item->id }}" method="POST" class="d-inline">
                                     @csrf
                                     @method('delete')
                                     <button type="submit" class="btn btn-danger btn=sm"
