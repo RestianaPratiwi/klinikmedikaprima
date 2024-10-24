@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\DaftarController;
+use App\Http\Controllers\LaporanDaftarController;
+use App\Http\Controllers\LaporanPasienController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\PasienController;
@@ -23,7 +25,8 @@ Auth::routes([
 
 
 Route::middleware([Authenticate::class])->group(function () {
-    Route::get( 'pasien/create', [App\Http\Controllers\PasienController::class, 'create'])->name('pasien.create');
+    Route::resource( 'laporan-daftar', LaporanDaftarController::class );
+    Route::resource( 'laporan-pasien', LaporanPasienController::class );
     Route::resource( 'pasien', PasienController::class );
     Route::resource( 'daftar', DaftarController::class );
     Route::resource( 'poli', PoliController::class );
