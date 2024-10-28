@@ -19,7 +19,7 @@
                                 <div class="form-group col-md-4">
                                     <label for="poli">Pilih Polli</label>
                                     <select name="poli" class="form-control">
-                                        <option value="">-- Semua Data --</option>
+                                        <option value="">Semua Data</option>
                                         @foreach ($listPoli as $key => $val)
                                             <option value="{{ $key }}" @selected(old('poli') == $key)>
                                                 {{ $val }}

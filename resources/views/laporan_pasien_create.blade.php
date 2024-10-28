@@ -19,7 +19,7 @@
                                 <div class="form-group col-md-3">
                                     <label for="jenis_kelamin">Jenis Kelamin</label>
                                     <select name="jenis_kelamin" class="form-control">
-                                        <option value="">-- Semua Data --</option>
+                                        <option value="">Semua Data</option>
                                         <option value="laki-laki">Laki-laki</option>
                                         <option value="perempuan">Perempuan</option>
                                     </select>
@@ -27,7 +27,7 @@
                                 <div class="form-group col-md-3">
                                     <label for="umur">Rentang umur</label>
                                     <select name="umur" class="form-control">
-                                        <option value="">-- Semua Data --</option>
+                                        <option value="">Semua Data</option>
                                         <option value=">=17<=35">>=17 <= 35</option>
                                         <option value=">=35<=45">>=36 <= 45</option>
                                     </select>

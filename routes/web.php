@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\DaftarController;
 use App\Http\Controllers\LaporanDaftarController;
 use App\Http\Controllers\LaporanPasienController;
@@ -10,8 +11,12 @@ use App\Http\Controllers\PoliController;
 use \Illuminate\Auth\Middleware\Authenticate;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
+
+
+
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
