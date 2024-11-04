@@ -30,8 +30,10 @@
         <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
           <ul id="sidebarnav">
             <li class="nav-small-cap">
-              <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-              <span class="hide-menu">Main Navigation</span>
+                <div class="nav-title d-flex align-items-center">
+                   <i class="ti ti-dots nav-small-cap-icon fs-4 me-2 text-primary"></i>
+                   <span class="hide-menu text-uppercase text-primary">Main Navigation</span>
+                </div>
             </li>
             <li class="sidebar-item">
               <a class="sidebar-link" href="/home" aria-expanded="false">
@@ -44,7 +46,7 @@
               <li class="sidebar-item">
                  <a class="sidebar-link" href="/poli" aria-expanded="false">
                 <span>
-                  <i class="ti ti-user"></i>
+                  <i class="ti ti-stethoscope"></i>
                 </span>
                 <span class="hide-menu">Data Poli</span>
               </a>
@@ -52,7 +54,7 @@
               <li class="sidebar-item">
                  <a class="sidebar-link" href="/poli/create" aria-expanded="false">
                 <span>
-                  <i class="ti ti-user"></i>
+                  <i class="ti ti-stethoscope"></i>
                 </span>
                 <span class="hide-menu">Tambah Poli</span>
               </a>
@@ -84,7 +86,7 @@
              <li class="sidebar-item">
                  <a class="sidebar-link {{ request()->is('laporan-pasien') ? 'active' : ''}}" href="/laporan-pasien/create" aria-expanded="false">
                 <span>
-                  <i class="ti ti-user"></i>
+                  <i class="ti ti-chart-line"></i>
                 </span>
                 <span class="hide-menu">Laporan Data Pasien</span>
               </a>
@@ -92,7 +94,7 @@
             <li class="sidebar-item">
                 <a class="sidebar-link {{ request()->is('laporan-daftar') ? 'active' : '' }}"  href="/laporan-daftar/create" aria-expanded="false">
                 <span>
-                    <i class="ti ti-user"></i>
+                    <i class="ti ti-chart-line"></i>
                 </span>
                 <span class="hide-menu">Laporan Data Pendaftaran</span>
                 </a>

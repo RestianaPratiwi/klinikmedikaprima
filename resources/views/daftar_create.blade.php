@@ -31,11 +31,11 @@
             </div>
         </div>
         <div class="form-group mt-3">
-            <label for="poli_id">Poli</label>
-            <select name="poli_id" class="form-control">
+            <label for="poli">Poli</label>
+            <select name="poli" class="form-control">
                 <option value=""> Pilih Poli </option>
                 @foreach ($listPoli as $itemPoli)
-                    <option value="{{ $itemPoli->id }}" @selected(old('poli_id') == $itemPoli->id)>
+                    <option value="{{ $itemPoli->nama_poli }}" @selected(old('poli') == $itemPoli->nama_poli)>
                     {{ $itemPoli->nama_poli }} -  {{ $itemPoli->biaya_konsultasi }}
                     </option>
                 @endforeach

@@ -103,7 +103,7 @@ class PasienController extends Controller
             Storage::delete($pasien->foto);
         }
         $pasien->delete();
-        flash('Data berhasil dihapus');
+        flash('Data berhasil dihapus')->error();
         return back();
     }
 }

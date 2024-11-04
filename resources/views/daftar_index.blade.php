@@ -33,7 +33,7 @@
                            <td>{{ $item->pasien->nama }}</td>
                            <td>{{ $item->pasien->jenis_kelamin }}</td>
                            <td>{{ $item->tanggal_daftar }}</td>
-                           <td>{{ $item->poli_id }}</td>
+                           <td>{{ $item->poli }}</td>
                            <td>{{ $item->keluhan }}</td>
                            <td>
                                

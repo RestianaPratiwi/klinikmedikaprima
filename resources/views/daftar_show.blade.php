@@ -21,6 +21,11 @@
                                     <th>Jenis Kelamin</th>
                                     <td> : {{ $daftar->pasien->jenis_kelamin }}</td>
                                 </tr>
+                                 <tr>
+                                    <th>Umur</th>
+                                    <td> : {{ $daftar->pasien->umur }}</td>
+                                </tr>
+
                             </tbody>
                         </table>
                         <hr>

@@ -29,7 +29,7 @@
                             <td class="text-center">{{ $item->pasien->umur }}</td>
                             <td class="text-center">{{ $item->pasien->jenis_kelamin }}</td>
                             <td class="text-center">{{ $item->tanggal_daftar }}</td>
-                            <td class="text-center">{{ $item->poli_id }}</td>
+                            <td class="text-center">{{ $item->poli}}</td>
                         </tr>
                     @endforeach
                 </tbody>
@@ -38,12 +38,12 @@
     </div>
 
     <style>
-        /* General styling for a modern and clean look */
+        /* membuat tampilan lebih modern */
         .text-primary {
             color: #007bff;
         }
 
-        /* Alternating row colors for better readability */
+        /* Warna baris bergantian agar lebih mudah dibaca */
         .table-hover tbody tr:nth-of-type(odd) {
             background-color: #f9fbfd;
         }

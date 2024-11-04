@@ -25,25 +25,7 @@
                            <td>{{ $item->keterangan }}</td>
                            <td>{{ $item->created_at }}</td>
                            <td>
-                                                          <a href="/pasien/{{ $item->id }}/edit" class="btn btn-warning btn-sm" 
-                                style="font-family: 'Arial', sans-serif; font-weight: bold; color: #fff; 
-                                       background: linear-gradient(135deg, #b0bec5, #78909c); padding: 10px 20px; 
-                                       border-radius: 5px; text-decoration: none; transition: background 0.3s, transform 0.3s; display: inline-block;">
-                                    Edit
-                            </a>
-
-                            <style>
-                                .btn-warning {
-                                   background: linear-gradient(135deg, #b0bec5, #78909c); /* Gradasi abu-abu dasar */
-                                }
-
-                                .btn-warning:hover {
-                                   background: linear-gradient(135deg, #78909c, #546e7a); /* Gradasi lebih gelap saat hover */
-                                   transform: scale(1.05); /* Memperbesar tombol saat hover */
-                                   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Bayangan saat hover */
-                                } 
-                            </style>
-
+                        
                                 <form action="/poli/{{ $item->id }}" method="POST" class="d-inline">
                                     @csrf
                                     @method('delete')
