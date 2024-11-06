@@ -32,12 +32,25 @@
                            <td>{{ $item->jenis_kelamin }}</td>
                            <td>{{ $item->created_at }}</td>
                            <td>
-                           <a href="/pasien/{{ $item->id }}/edit" class="btn btn-warning btn-sm" 
-                                style="font-family: 'Arial', sans-serif; font-weight: bold; color: #fff; 
-                                       background: linear-gradient(135deg, #b0bec5, #78909c); padding: 10px 20px; 
-                                       border-radius: 5px; text-decoration: none; transition: background 0.3s, transform 0.3s; display: inline-block;">
-                                    Edit
-                            </a>
+                            <a href="/pasien/{{ $item->id }}/edit" class="btn btn-warning btn-sm text-white" 
+                                        style="font-family: 'Arial', sans-serif; font-weight: bold; 
+                                        background: linear-gradient(135deg, #b0bec5, #78909c); 
+                                        padding: 10px 20px; border-radius: 5px; text-decoration: none; 
+                                        transition: background 0.3s, transform 0.3s; display: inline-block; border: none;"
+                                        onmouseover="this.style.transform='scale(1.1)';"
+                                        onmouseout="this.style.transform='scale(1)';">
+                                        Edit
+                                    </a>
+
+                                    <a href="/pasien/{{ $item->id }}" class="btn btn-info btn-sm text-white"
+                                        style="background: linear-gradient(135deg, #17a2b8, #117a8b); border: none; 
+                                        padding: 10px 20px; border-radius: 5px; transition: background 0.3s, transform 0.3s; 
+                                        display: inline-block;"
+                                        onmouseover="this.style.transform='scale(1.1)';"
+                                        onmouseout="this.style.transform='scale(1)';">
+                                        Detail
+                                    </a>
+
 
                             <style>
                                 .btn-warning {

@@ -20,7 +20,7 @@
                 </div>
 
                 <div class="form-group mt-1 mb-3">
-                    <label for="keterangan">Keterangan</label>
+                    <label for="keterangan">Dokter</label>
                     <input type="text" class="form-control @error('keterangan') is-invalid @enderror" id="keterangan"
                         name="keterangan" value="{{ old('keterangan') }}">
                     <span class="text-danger">{{ $errors->first('keterangan') }}</span>

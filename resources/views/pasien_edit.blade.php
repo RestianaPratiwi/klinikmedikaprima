@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container mt-5">
-    <div class="card rounded-4 shadow-lg">
+    <div class="card rounded-4" style="border: none; background: #ffffff;">
         <div class="card-body">
             <h5 class="card-title text-center mb-4 text-primary">Edit Data Pasien</h5>
             <form action="/pasien/{{ $pasien->id }}" method="POST" enctype="multipart/form-data">
@@ -64,11 +64,6 @@
 </div>
 
 <style>
-    .card {
-        background: linear-gradient(to bottom right, #f8f9fa, #e9ecef);
-        border: none;
-    }
-    
     .form-control {
         border-radius: 25px;
     }

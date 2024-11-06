@@ -46,7 +46,8 @@ class PoliController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $data['poli'] = Poli::findOrFail($id);
+        return view('poli_show', $data);
     }
 
     /**
@@ -54,7 +55,8 @@ class PoliController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $data['poli'] = Poli::findOrFail($id);
+        return view('poli_edit',$data);
     }
 
     /**
@@ -62,7 +64,15 @@ class PoliController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $requestData = $request->validate([
+            'nama_poli' => 'required',
+            'biaya_konsultasi' => 'required',
+            'keterangan' => 'nullable',
+        ]);
+        $poli = \App\Models\Poli::findOrfail($id);
+        $poli->save();
+        flash('Data anda berhasil diubah')->success();
+        return redirect('/poli');
     }
 
     /**

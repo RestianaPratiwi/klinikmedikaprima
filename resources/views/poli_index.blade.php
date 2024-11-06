@@ -11,7 +11,7 @@
                         <th>NO</th>
                         <th>NAMA POLI</th>
                         <th>BIAYA KONSULTASI</th>
-                        <th>KETERANGAN</th>
+                        <th>DOKTER</th>
                         <th>DATE TIME</th>
                         <th>AKSI</th>
                     </tr>
@@ -27,13 +27,34 @@
                            <td>
                         
                                 <form action="/poli/{{ $item->id }}" method="POST" class="d-inline">
+                                
+                                   <a href="/poli/{{ $item->id }}/edit" class="btn btn-warning btn-sm text-white" 
+                                        style="font-family: 'Arial', sans-serif; font-weight: bold; 
+                                        background: linear-gradient(135deg, #b0bec5, #78909c); 
+                                        padding: 10px 20px; border-radius: 5px; text-decoration: none; 
+                                        transition: background 0.3s, transform 0.3s; display: inline-block; border: none;"
+                                        onmouseover="this.style.transform='scale(1.1)';"
+                                        onmouseout="this.style.transform='scale(1)';">
+                                        Edit
+                                    </a>
+
+                                    <a href="/poli/{{ $item->id }}" class="btn btn-info btn-sm text-white"
+                                        style="background: linear-gradient(135deg, #17a2b8, #117a8b); border: none; 
+                                        padding: 10px 20px; border-radius: 5px; transition: background 0.3s, transform 0.3s; 
+                                        display: inline-block;"
+                                        onmouseover="this.style.transform='scale(1.1)';"
+                                        onmouseout="this.style.transform='scale(1)';">
+                                        Detail
+                                    </a>
+
                                     @csrf
                                     @method('delete')
-                                    <button type="submit" class="btn btn-danger btn-sm"
-                                         style="background: linear-gradient(135deg, #f44336, #c62828); border: none; padding: 10px 20px; transition: transform 0.3s, box-shadow 0.3s;"
-                                         onclick="return confirm('Anda yakin ingin menghapus data?')">
-                                         Hapus
-                                     </button>
+                                    <button type="submit" class="btn btn-danger btn-sm text-white" 
+                                          style="background: linear-gradient(135deg, #f44336, #c62828); border: none; padding: 10px 20px; 
+                                          border-radius: 5px; transition: background 0.3s, transform 0.3s; display: inline-block;" 
+                                          onclick="return confirm('Anda yakin ingin menghapus data?')">
+                                          Hapus
+                                    </button>
 
                                     <style>
                                         .btn-danger {

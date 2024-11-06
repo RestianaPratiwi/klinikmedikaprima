@@ -51,7 +51,8 @@ class PasienController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $data['pasien'] = Pasien::findOrFail($id);
+        return view('pasien_show', $data);
     }
 
     /**
