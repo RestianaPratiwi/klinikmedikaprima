@@ -30,21 +30,45 @@ class PasienController extends Controller
      */
     public function store(Request $request)
     {
-        $requestData = $request->validate([
+        // Validasi input
+        $request->validate([
             'no_pasien' => 'required',
             'nama' => 'required|min:3',
             'umur' => 'required',
             'alamat' => 'nullable',
             'jenis_kelamin' => 'required',
-            'foto' => 'required|image|mimes:jpeg,png,jpg|max:10000'
+            'foto' => 'nullable|image|mimes:jpeg,png,jpg|max:10000',
         ]);
-        $pasien = new \App\Models\Pasien;
-        $pasien->fill($requestData); //mengisi objek dengan data yang sudah divalidasi requestData
-        $pasien->foto = $request->file('foto')->store('public'); //mengisi objek dengan path foto
-        $pasien->save();
-        flash('Data berhasil disimpan')->success();
+    
+        // Cek apakah ada file foto yang diupload
+        if ($request->hasFile('foto')) {
+            // Menyimpan foto di folder public/uploads/pasien
+            $imageName = time() . '.' . $request->foto->extension();
+    
+            // Menyimpan foto menggunakan putFileAs di disk public
+            Storage::disk('public')->putFileAs(
+                'uploads/pasien',       // Folder penyimpanan
+                $request->foto,         // File yang akan diupload
+                $imageName              // Nama file yang disimpan
+            );
+        } else {
+            $imageName = null; // Jika tidak ada foto, set null
+        }
+    
+        // Menyimpan data pasien ke database
+        Pasien::create([
+            'no_pasien' => $request->no_pasien,
+            'nama' => $request->nama,
+            'umur' => $request->umur,
+            'alamat' => $request->alamat,
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'foto' => $imageName,  // Menyimpan nama file foto
+        ]);
+    
         return back();
     }
+    
+    
 
     /**
      * Display the specified resource.
@@ -60,33 +84,51 @@ class PasienController extends Controller
      */
     public function edit(string $id)
     {
-        $data['pasien'] = \App\Models\Pasien::findOrFail($id);
-        return view('pasien_edit',$data);
+        $pasien = Pasien::findOrFail($id);
+        return view('pasien_edit', compact('pasien'));
     }
+
 
     /**
      * Update the specified resource in storage.
      */
+    // PasienController.php
     public function update(Request $request, string $id)
     {
         $requestData = $request->validate([
             'nama' => 'required|min:3',
-            'no_pasien' => 'required|unique:pasiens,no_pasien,'.$id,
+            'no_pasien' => 'required|unique:pasiens,no_pasien,' . $id,
             'umur' => 'required',
             'alamat' => 'nullable',
             'jenis_kelamin' => 'required',
             'foto' => 'nullable|image|mimes:jpeg,png,jpg|max:10000'
         ]);
-        $pasien = \App\Models\Pasien::findOrfail($id);
-        $pasien->fill($requestData); //mengisi objek dengan data yang sudah divalidasi requestData
+    
+        $pasien = Pasien::findOrFail($id);
+    
+        // Periksa apakah ada file foto baru
         if ($request->hasFile('foto')) {
-            Storage::delete($pasien->foto);
-            $pasien->foto = $request->file('foto')->store('public');
+            // Hapus foto lama jika ada
+            if ($pasien->foto) {
+                Storage::disk('public')->delete('uploads/pasien/' . $pasien->foto);
+            }
+    // Simpan foto baru menggunakan Storage disk public
+$imageName = time() . '.' . $request->foto->extension();
+Storage::disk('public')->putFileAs('uploads/pasien', $request->foto, $imageName);
+
+// Set nama foto baru pada data pasien
+$requestData['foto'] = $imageName;
+
         }
-        $pasien->save();
+    
+        // Update data pasien
+        $pasien->update($requestData);
+    
         flash('Data anda berhasil diubah')->success();
         return redirect('/pasien');
     }
+    
+
 
     /**
      * Remove the specified resource from storage.
@@ -104,7 +146,7 @@ class PasienController extends Controller
             Storage::delete($pasien->foto);
         }
         $pasien->delete();
-        flash('Data berhasil dihapus')->error();
+        flash('Data berhasil dihapus')->success();
         return back();
     }
 }

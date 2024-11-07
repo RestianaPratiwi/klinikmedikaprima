@@ -64,22 +64,36 @@ class PoliController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        // Validasi input
         $requestData = $request->validate([
             'nama_poli' => 'required',
             'biaya_konsultasi' => 'required',
             'keterangan' => 'nullable',
         ]);
-        $poli = \App\Models\Poli::findOrfail($id);
+    
+        // Cari data yang akan diupdate
+        $poli = \App\Models\Poli::findOrFail($id);
+    
+        // Mengisi data baru dan update
+        $poli->fill($requestData);
         $poli->save();
-        flash('Data anda berhasil diubah')->success();
+    
+        // Menampilkan pesan sukses
+        flash('Data Anda berhasil diubah')->success();
+        
+        // Redirect setelah update
         return redirect('/poli');
     }
+    
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
     {
-        //
+        $poli = poli::findOrfail($id);
+        $poli->delete();
+        flash('Data berhasil dihapus')->success();
+        return back();
     }
 }

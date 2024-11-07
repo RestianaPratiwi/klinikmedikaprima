@@ -6,16 +6,20 @@
         <div class="card-body">
             <h5 class="card-title text-center mb-4 text-primary">Edit Data Pasien</h5>
             <form action="/pasien/{{ $pasien->id }}" method="POST" enctype="multipart/form-data">
-                @method('put')
+                @method('PUT')
                 @csrf
                 
                 <div class="form-group mb-3">
                     <label for="foto" class="form-label">Foto Pasien</label>
                     <div class="mb-3">
                         <input type="file" class="form-control-file @error('foto') is-invalid @enderror" id="foto" name="foto">
-                        @if($pasien->foto)
-                            <img src="{{ asset('storage/private/public/'.$pasien->foto) }}" width="120" class="mt-2 rounded-circle border border-secondary" alt="Foto Pasien">
-                        @endif
+                        
+                        <!-- Menampilkan foto yang sudah ada jika ada -->
+                     @if($pasien->foto)
+                        <img src="{{ asset('storage/uploads/pasien/' . $pasien->foto) }}" width="120" class="mt-2 rounded-circle border border-secondary" alt="Foto Pasien">
+                    @endif
+
+
                     </div>
                     <span class="text-danger">{{ $errors->first('foto') }}</span>
                 </div>

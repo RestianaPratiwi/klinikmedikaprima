@@ -11,9 +11,9 @@
                         <th>NO</th>
                         <th>NO PASIEN</th>
                         <th>NAMA</th>
+                        <th>FOTO</th>
                         <th>UMUR</th>
                         <th>JENIS KELAMIN</th>
-                        <th>TANGGAL BUAT</th>
                         <th>AKSI</th>
                     </tr>
                 </thead>
@@ -22,15 +22,17 @@
                         <tr>
                            <td>{{ $loop->iteration }}</td>
                            <td>{{ $item->no_pasien }}</td>
-                           <td>
-                                @if ($item->foto)
-                                    <img src="{{ asset('/storage/app/public/' . $item->foto) }}" alt="foto" width="50" />
-                                @endif
-                               {{ $item->nama }}
-                           </td>
+                           <td>{{ $item->nama }}</td>
+                        <td>
+                             @if ($item->foto)
+                                 <img src="{{ asset('storage/uploads/pasien/'.$item->foto) }}" alt="Foto Pasien" width="100" />
+                            @else
+                                 <span>Tidak Ada Foto</span>
+                            @endif
+                        </td>
+
                            <td>{{ $item->umur }}</td>
                            <td>{{ $item->jenis_kelamin }}</td>
-                           <td>{{ $item->created_at }}</td>
                            <td>
                             <a href="/pasien/{{ $item->id }}/edit" class="btn btn-warning btn-sm text-white" 
                                         style="font-family: 'Arial', sans-serif; font-weight: bold; 

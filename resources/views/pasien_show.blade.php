@@ -11,6 +11,16 @@
                 <table class="table table-bordered table-hover">
                     <tbody>
                         <tr>
+                            <th class="bg-light">Foto Pasien</th>
+                            <td>
+                                @if($pasien->foto)
+                                    <img src="{{ asset('storage/uploads/pasien/' . $pasien->foto) }}" alt="Foto Pasien" width="150" class="img-thumbnail">
+                                @else
+                                    <p class="text-muted">Tidak ada foto</p>
+                                @endif
+                            </td>
+                        </tr>
+                        <tr>
                             <th class="bg-light">ID</th>
                             <td><strong>#{{ $pasien->id }}</strong></td>
                         </tr>
@@ -26,11 +36,11 @@
                             <th class="bg-light">Umur</th>
                             <td>{{ $pasien->umur }}</td>
                         </tr>
-                         <tr>
+                        <tr>
                             <th class="bg-light">Jenis Kelamin</th>
                             <td>{{ $pasien->jenis_kelamin }}</td>
                         </tr>
-                         <tr>
+                        <tr>
                             <th class="bg-light">Alamat</th>
                             <td>{{ $pasien->alamat }}</td>
                         </tr>

@@ -7,8 +7,7 @@
                 @csrf
                  <div class="form-group mt-1 mb-3">
                     <label for="foto">Foto Pasien</label>
-                    <input type="file" class="form-control @error('foto') is-invalid @enderror" id="foto"
-                        name="foto">
+                    <input type="file" name="foto" id="foto" class="form-control @error('foto') is-invalid @enderror" accept="image/*">
                     <span class="text-danger">{{ $errors->first('foto') }}</span>
                 </div>
 
