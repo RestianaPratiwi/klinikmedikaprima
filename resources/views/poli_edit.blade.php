@@ -27,8 +27,17 @@
                     <span class="text-danger">{{ $errors->first('keterangan') }}</span>
                 </div>
 
+                <!-- Tombol Update dan Kembali dengan ukuran medium dan sejajar -->
+<div class="d-flex gap-2 mt-4">
+    <a href="/poli" class="btn btn-primary btn-md rounded-pill">Kembali</a>
+    <button type="submit" class="btn btn-primary btn-md rounded-pill">Update Data Poli</button>
+</div>
 
-                <button type="submit" class="btn btn-primary btn-lg btn-block rounded-pill">Update Data Poli</button>
+
+
+
+
+
             </form>
         </div>
     </div>

@@ -38,7 +38,7 @@ class PoliController extends Controller
         $poli->fill($requestData);
         $poli->save();
         flash('Data berhasil disimpan')->success();
-        return back();
+        return redirect('/poli');
     }
 
     /**

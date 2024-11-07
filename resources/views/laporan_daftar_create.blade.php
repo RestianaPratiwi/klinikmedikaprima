@@ -12,12 +12,16 @@
                         <form action="/laporan-daftar" method="GET" target="_blank">
                             <div class="row mt-3">
                                 <div class="form-group col-md-4">
-                                    <label for="tanggal_mulai" class="font-weight-bold text-primary">Tanggal Daftar Mulai</label>
+                                    <label for="tanggal_mulai" class="font-weight-bold text-primary">Tanggal Daftar</label>
                                     <input type="date" name="tanggal_mulai" class="form-control shadow-sm" style="border-radius: 8px;">
                                 </div>
-                                <div class="form-group col-md-4">
-                                    <label for="tanggal_akhir" class="font-weight-bold text-primary">Tanggal Daftar Akhir</label>
-                                    <input type="date" name="tanggal_akhir" class="form-control shadow-sm" style="border-radius: 8px;">
+                                 <div class="form-group col-md-4">
+                                    <label for="jenis_kelamin" class="font-weight-bold text-primary">Jenis Kelamin</label>
+                                    <select name="jenis_kelamin" class="form-control shadow-sm" style="border-radius: 8px;">
+                                        <option value="">Semua Data</option>
+                                        <option value="laki-laki">Laki-laki</option>
+                                        <option value="perempuan">Perempuan</option>
+                                    </select>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="poli" class="font-weight-bold text-primary">Pilih Poli</label>

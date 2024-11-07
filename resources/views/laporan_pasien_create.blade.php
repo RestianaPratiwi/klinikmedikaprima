@@ -11,15 +11,11 @@
                     <div class="card-body">
                         <form action="/laporan-pasien" method="GET" target="_blank">
                             <div class="row mt-3">
-                                <div class="form-group col-md-3">
-                                    <label for="tanggal_mulai" class="font-weight-bold text-primary">Tanggal Daftar Mulai</label>
+                                <div class="form-group col-md-4">
+                                    <label for="tanggal_mulai" class="font-weight-bold text-primary">Tanggal Daftar</label>
                                     <input type="date" name="tanggal_mulai" class="form-control shadow-sm" style="border-radius: 8px;">
                                 </div>
-                                <div class="form-group col-md-3">
-                                    <label for="tanggal_akhir" class="font-weight-bold text-primary">Tanggal Daftar Akhir</label>
-                                    <input type="date" name="tanggal_akhir" class="form-control shadow-sm" style="border-radius: 8px;">
-                                </div>
-                                <div class="form-group col-md-3">
+                                <div class="form-group col-md-4">
                                     <label for="jenis_kelamin" class="font-weight-bold text-primary">Jenis Kelamin</label>
                                     <select name="jenis_kelamin" class="form-control shadow-sm" style="border-radius: 8px;">
                                         <option value="">Semua Data</option>
@@ -27,12 +23,12 @@
                                         <option value="perempuan">Perempuan</option>
                                     </select>
                                 </div>
-                                <div class="form-group col-md-3">
+                                <div class="form-group col-md-4">
                                     <label for="umur" class="font-weight-bold text-primary">Rentang Umur</label>
                                     <select name="umur" class="form-control shadow-sm" style="border-radius: 8px;">
                                         <option value="">Semua Data</option>
-                                        <option value=">=17<=35">>=17 <= 35</option>
-                                        <option value=">=35<=45">>=36 <= 45</option>
+                                        <option value=">=17">Lebih dari 17</option>
+                                        <option value="<=17">Kurang dari 17</option>
                                     </select>
                                 </div>
                             </div>
