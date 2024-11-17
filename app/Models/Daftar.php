@@ -21,7 +21,7 @@ class Daftar extends Model
         ],
         'joins' => [
             'pasiens' => ['pasiens.id','daftars.pasien_id'],
-            'polis' => ['polis.id','daftars.poli_id'],
+            'polis' => ['polis.id','daftars.poli'],
         ],
     ];
 
