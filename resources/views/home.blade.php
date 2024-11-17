@@ -35,8 +35,8 @@
 
                     <!-- Call to Action Buttons -->
                     <div class="mt-4 text-center">
-                        <a href="/laporan-daftar/create" class="btn btn-primary btn-lg">Lihat Data Pasien</a>
-                        <a href="/laporan-pasien/create" class="btn btn-primary btn-lg">Lihat Data Pendaftaran</a>
+                        <a href="/laporan-pasien/create" class="btn btn-primary btn-lg">Lihat Data Pasien</a>
+                        <a href="/laporan-daftar/create" class="btn btn-primary btn-lg">Lihat Data Pendaftaran</a>
                     </div>
                 </div>
             </div>

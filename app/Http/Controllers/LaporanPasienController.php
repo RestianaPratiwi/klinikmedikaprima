@@ -16,10 +16,7 @@ class LaporanPasienController extends Controller
     {
         $pasien = \App\Models\Pasien::query();
         if ($request->filled('tanggal_mulai')) {
-            $pasien->whereDate('created_at', '>=', $request->tanggal_mulai);
-        }
-        if ($request->filled('tanggal_selesai')) {
-            $pasien->whereDate('created_at', '<=', $request->tanggal_selesai);
+            $pasien->whereDate('created_at', '=', $request->tanggal_mulai);
         }
         if ($request->filled('jenis_kelamin') && $request->jenis_kelamin != 'semua') {
             $pasien->where('jenis_kelamin', $request->jenis_kelamin);

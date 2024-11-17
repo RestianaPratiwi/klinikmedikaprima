@@ -20,16 +20,21 @@ class LaporanDaftarController extends Controller
     public function index(Request $request)
     {
         $models = Daftar::query();
+
+        // Filter berdasarkan tanggal
         if ($request->filled('tanggal_mulai')) {
-            $models->whereDate('tanggal_daftar', '>=', $request->tanggal_mulai);
+            $models->whereDate('tanggal_daftar', '=', $request->tanggal_mulai);
         }
-        if ($request->filled('tanggal_akhir')) {
-            $models->whereDate('tanggal_daftar', '<=', $request->tanggal_akhir);
-        }
+
+        // Filter berdasarkan poli
         if ($request->filled('poli')) {
             $models->where('poli', $request->poli);
         }
-        $data['models'] = $models->latest()->get();
+
+        // Urutkan data berdasarkan tanggal terbaru
+        $data['models'] = $models->orderBy('tanggal_daftar', 'desc')->get();
+
         return view('laporan_daftar_index', $data);
     }
 }
+

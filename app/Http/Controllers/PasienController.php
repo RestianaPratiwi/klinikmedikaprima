@@ -64,8 +64,9 @@ class PasienController extends Controller
             'jenis_kelamin' => $request->jenis_kelamin,
             'foto' => $imageName,  // Menyimpan nama file foto
         ]);
-    
-        return back();
+
+        flash('Data anda berhasil ditambahkan')->success();
+        return redirect('/pasien');
     }
     
     

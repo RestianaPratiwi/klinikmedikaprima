@@ -50,7 +50,7 @@ class DaftarController extends Controller
         $daftar->fill($requestData);
         $daftar->save();
         flash('Data berhasil disimpan')->success();
-        return back();
+        return redirect('/daftar');
     }
 
     /**

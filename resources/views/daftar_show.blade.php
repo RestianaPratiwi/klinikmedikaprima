@@ -108,9 +108,19 @@
                                 <textarea name="tindakan" class="form-control shadow-sm" rows="3">{{ $daftar->tindakan }}</textarea>
                                 <span class="text-danger">{{ $errors->first('tindakan') }}</span>
                             </div>
-                            <button type="submit" class="btn btn-primary btn-lg shadow-lg float-start">
-                                <i class="fas fa-save"></i> SIMPAN
-                            </button>
+                            <div class="d-flex gap-2">
+                                <!-- Tombol Kembali -->
+                                    <a href="/daftar" class="btn btn-primary btn-lg shadow-lg rounded-pill">
+                                        <i class="fas fa-arrow-left"></i> Kembali
+                                    </a>
+
+                                <!-- Tombol Simpan -->
+                                    <button type="submit" class="btn btn-primary btn-lg shadow-lg rounded-pill">
+                                        <i class="fas fa-save"></i> Simpan
+                                    </button>
+                            </div>
+
+
 
                         </form>
                     </div>
